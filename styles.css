@@ -41,9 +41,9 @@ header {
 header h1 {
     font-size: 3rem;
     font-weight: 800;
-    background: linear-gradient(135deg, var(--primary-color), var(--success-color));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    /*  background: linear-gradient(135deg, var(--primary-color), var(--success-color)); */
+    /*  -webkit-background-clip: text;  */
+    /*  -webkit-text-fill-color: transparent;  */
     background-clip: text;
     margin-bottom: 0.5rem;
 }
