@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelFixel - AI Pixel Art Fixer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎨 PixelFixel</h1>
+            <p class="tagline">Fix AI-generated pixel art mixels instantly</p>
+        </header>
+
+        <main>
+            <!-- Image Input Section -->
+            <section class="input-section">
+                <div id="dropZone" class="drop-zone">
+                    <div class="drop-content">
+                        <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        <p class="drop-text">Drop an image here, paste, or</p>
+                        <button id="openButton" class="btn btn-primary">Browse Files</button>
+                        <input type="file" id="fileInput" accept="image/*" hidden>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Processing Section (hidden until image loaded) -->
+            <section id="processingSection" class="processing-section hidden">
+                <!-- Controls -->
+                <div class="controls-panel">
+                    <div class="control-group">
+                        <label for="paletteSelect">Palette:</label>
+                        <select id="paletteSelect">
+                            <option value="none">Auto-detect</option>
+                            <option value="pico8">PICO-8 (16 colors)</option>
+                            <option value="gameboy">Game Boy (4 colors)</option>
+                            <option value="nes">NES NTSC (64 colors)</option>
+                            <option value="commodore64">Commodore 64 (16 colors)</option>
+                            <option value="cga">CGA (16 colors)</option>
+                            <option value="custom">Custom Color Count</option>
+                        </select>
+                    </div>
+
+                    <div id="customColorGroup" class="control-group hidden">
+                        <label for="colorSlider">Colors: <span id="colorValue">16</span></label>
+                        <input type="range" id="colorSlider" min="2" max="128" value="16" step="1">
+                    </div>
+
+                    <div class="control-group">
+                        <button id="downloadButton" class="btn btn-success">Download Fixed Image</button>
+                        <button id="resetButton" class="btn btn-secondary">Reset</button>
+                    </div>
+                </div>
+
+                <!-- Image Comparison -->
+                <div class="comparison-container">
+                    <div class="image-panel">
+                        <h3>Original <span id="originalSize" class="size-label"></span></h3>
+                        <div class="canvas-wrapper">
+                            <canvas id="originalCanvas"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="image-panel">
+                        <h3>Fixed <span id="fixedSize" class="size-label"></span></h3>
+                        <div class="canvas-wrapper">
+                            <canvas id="fixedCanvas"></canvas>
+                        </div>
+                        <p id="detectionInfo" class="detection-info"></p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>All processing happens in your browser - no uploads, complete privacy</p>
+        </footer>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
