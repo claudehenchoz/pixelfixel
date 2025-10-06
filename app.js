@@ -235,7 +235,7 @@ function displayFixedImage(imageData) {
 
     if (scale > 1) {
         fixedCanvas.style.width = `${width * scale}px`;
-        fixedCanvas.style.height = `${height * scale}px`;
+        fixedCanvas.style.height = 'auto';
     } else {
         fixedCanvas.style.width = '';
         fixedCanvas.style.height = '';
